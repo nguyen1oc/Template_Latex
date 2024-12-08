@@ -1,0 +1,184 @@
+\documentclass[a4paper]{article}
+\usepackage{a4wide,amssymb,epsfig,latexsym,multicol,array,hhline,fancyhdr}
+\usepackage{vntex}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{lastpage}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{graphicx}							% Standard graphics package
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usepackage{framed}
+\usepackage[listings,theorems]{tcolorbox}
+\usepackage{lineno}
+\usepackage{listings}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true} 
+%\usepackage{pstcol} 								% PSTricks with the standard color package
+
+\geometry{
+    left=1.5cm,
+    right=1.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+\newtheorem{theorem}{{\bf Theorem}}
+\newtheorem{property}{{\bf Property}}
+\newtheorem{proposition}{{\bf Proposition}}
+\newtheorem{corollary}[proposition]{{\bf Corollary}}
+\newtheorem{lemma}[proposition]{{\bf Lemma}}
+
+\AtBeginDocument{\renewcommand*\contentsname{Contents}}
+\AtBeginDocument{\renewcommand*\refname{References}}
+%\usepackage{fancyhdr}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{\bf \ttfamily University of Technology, Ho Chi Minh City}\\
+		\textbf{\bf \ttfamily Faculty of Computer Science and Engineering}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Assignment Report for Computer Network - Academic year 2024 - 2025}
+\fancyfoot[R]{\scriptsize \ttfamily Page {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+
+%%%
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+    language=SQL,
+    basicstyle=\ttfamily\small,    
+    keywordstyle=\color{blue},      
+    commentstyle=\color{gray},
+    stringstyle=\color{purple},    
+    morekeywords={VARCHAR, INT}     
+}
+
+\captionsetup[table]{name=\textbf{Table}}
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+\begin{center}
+VIETNAM NATIONAL UNIVERSITY, HO CHI MINH CITY \\
+UNIVERSITY OF TECHNOLOGY \\
+FACULTY OF COMPUTER SCIENCE AND ENGINEERING
+\end{center}
+
+\vspace{1cm}
+\begin{figure}[h!]
+\begin{center}
+     \includegraphics[width=4cm]{hcmut.png}
+\end{center}
+\vspace{0.5cm}
+\end{figure}
+
+\begin{center}
+\begin{tabular}{c}
+\\
+\multicolumn{1}{l}{\textbf{{\Large COMPUTER NETWORK (CO3094)}}}\\
+~~\\
+\hline
+\\
+\multicolumn{1}{l}{\textbf{{\Large Assignment (Semester: 241, Group: )}}}\\
+\\
+\textbf{{\Huge Network Application: }}\\
+\textbf{{\Huge Torrent Tracker and Peer }}\\
+\\
+\\
+\hline
+\end{tabular}    
+\end{center}
+\vspace{0.5 cm}
+
+\begin{table}[h]
+\begin{tabular}{rrl}
+\hspace{2 cm} 
+& \large Instructor: & \large   Nguyen Phuong Duy, \textit{HCMUT}\\
+\\
+& \large Students: & \large Nguyen Thien Loc  - 2252460\\
+&   & \large Ly Trieu Uy - 2252889\\
+&   & \large Mai Hoang Phuc - 2252635\\
+&   & \large Nguyen Thi Quoc Nguyen - 2252549\\
+
+\end{tabular}
+\end{table}
+\vspace{4 cm} %Should change for each report
+\begin{center}
+    \footnotesize{HO CHI MINH CITY, DECEMBER 2024}
+\end{center}
+\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{center}
+\begin{tabular}{|c|c|c|} 
+ \hline
+ ID & Name & Contribution (\%) \\ 
+ \hline
+2252460 & Nguyen Thien Loc & 100 \\ 
+ \hline
+2252889 & Ly Trieu Uy& 100 \\
+ \hline
+2252635 & Mai Hoang Phuc& 100 \\
+ \hline
+2252549 & Nguyen Thi Quoc Nguyen& 100 \\
+ \hline
+\end{tabular}
+\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{References}
+
+%%%%%%%%%%%%%%%%%%%%%
+\end{document}
